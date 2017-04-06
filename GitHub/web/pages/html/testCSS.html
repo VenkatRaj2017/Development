@@ -7,8 +7,68 @@ and open the template in the editor.
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <style>
+            #innerDiv
+            {
+                display: inline-block;
+                height:40px;
+                width: 50px;
+                left: 55px;
+                top:46px;
+                text-align:center;
+                position: absolute;
+                color:white;
+                font-weight: bold;
+                border:1px solid white;
+                z-index: 1;
+                display: none;
+            }
+            #outerDiv:hover  #innerDiv
+            {
+                display: block;
+                opacity: 1;
+            }
+            #outerDiv:hover
+            {
+                opacity: 0.6;
+                display: inline-block;
+                cursor: pointer;
+                background: #74767C;
+            }
+            #outerDiv
+            {
+                height:120px;
+                width: 150px;
+                background: #E9EDF8;
+                border-radius: 10px;
+            }
+            img
+            {
+                width:90px;
+                height:80px;
+                position: relative;
+                top:19px;
+                border-radius: 10px;
+            }
+            img:hover
+            {
+                opacity: 1;
+            }
+        </style>
     </head>
     <body>
-        <img src=""
-    </body>
+    <center>
+        <div id="outerDiv">
+            <center>
+                <img src="/home/venkatesan/Pictures/1.jpg"/>
+            </center>
+            <center>
+                <div id="innerDiv">
+                    Go
+                </div>
+            </center>
+        </div>
+    </center>
+</body>
 </html>

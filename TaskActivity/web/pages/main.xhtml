@@ -1,0 +1,81 @@
+<!--
+main.xhtml
+
+Created on Jul 26, 2017, 4:33:31 PM
+
+Copyright © 2012-2013 InfoMindz R&D Sdn. Bhd.
+All Rights Reserved.
+
+This software is the confidential and proprietary information of
+InfoMindz R&D Sdn. Bhd.("Confidential Information"). You shall
+not disclose such Confidential Information and shall use it only
+in accordance with the terms of the license agreement you entered
+into with InfoMindz.
+-->
+
+<!--
+    This page is used to
+    since:  1.0
+    author: venkatesan
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <f:view id="mainViewId">
+        <h:head>
+            <style>
+                .commonNormalButton
+                {
+                    width: 80px;
+                    height: 25px;
+                }
+                .panel_container
+                {
+                    margin:0  auto;
+                    display:inline-block;
+                }
+            </style>
+        </h:head>
+        <h:body style="margin:0px auto;" class="ui-widget-content">
+            <h:form binding="#{Main.initForm}">
+                <p:menubar>
+                    <p:submenu label="Employee" icon="ui-icon-document">
+                        <p:menuitem value="Add" url="#" />
+                        <p:menuitem value="View" url="#" />
+                        <p:menuitem value="Delete" url="#" />
+                        <p:menuitem value="Update" url="#" />
+                    </p:submenu>
+
+                    <p:submenu label="About" icon="ui-icon-pencil">
+                        <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+                        <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+                    </p:submenu>
+
+                    <p:submenu label="Help" icon="ui-icon-help">
+                        <p:menuitem value="Contents" url="#" />
+                    </p:submenu>
+
+                    <f:facet name="options">
+                        <p:inputText style="margin-right:10px" placeholder="Search"/>
+                        <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+
+            <p:layout style="height:93%;margin-top: -15px;">
+                <p:layoutUnit position="west" resizable="true" size="100" minSize="40" maxSize="200">
+                    Content soon...
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <ui:include src="/pages/addEmployeeDetail.xhtml"/>
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>

@@ -16,6 +16,7 @@ package com.infomindz.pl.employee;
 
 import com.infomindz.employee.dao.EmployeeDetailDAO;
 import com.infomindz.employee.dto.EmployeeTO;
+import com.infomindz.employee.interfaces.TaskActivity;
 
 /**
  * @since 1.0
@@ -28,6 +29,7 @@ public class AddEmployeeDetail
     private String empAge;
     private String empRole;
     private String empAddress;
+    private TaskActivity taskActivity;
 
     /**
      *
@@ -40,10 +42,7 @@ public class AddEmployeeDetail
         employeeBean.setEmpRole(empRole);
         employeeBean.setEmpName(empName);
         employeeBean.setEmpAddress(empAddress);
-        
-        
-        EmployeeDetailDAO detail = new EmployeeDetailDAO();
-        detail.addEmployeeDetails(employeeBean);
+        taskActivity.storeEmployeeDetails(employeeBean);
         return null;
     }
 

@@ -16,6 +16,7 @@ package com.infomindz.employee.dao;
 
 import com.infomindz.employee.dto.EmployeeTO;
 import com.infomindz.employee.entity.Employee;
+import com.infomindz.employee.interfaces.TaskActivity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -25,7 +26,7 @@ import javax.persistence.Persistence;
  * @since 1.0
  * @author venkatesan
  */
-public class EmployeeDetailDAO
+public class EmployeeDetailDAO implements TaskActivity
 {
 
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("SamplePU");
@@ -41,10 +42,17 @@ public class EmployeeDetailDAO
      */
     public String addEmployeeDetails(EmployeeTO employeeBean)
     {
+
+        return null;
+    }
+
+    @Override
+    public void storeEmployeeDetails(EmployeeTO employeeBean)
+    {
         managerFactory = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = managerFactory.getTransaction();
-        transaction.begin();   
-        
+        transaction.begin();
+
         if (employeeBean != null)
         {
             Employee employee = new Employee();
@@ -57,6 +65,5 @@ public class EmployeeDetailDAO
         }
         managerFactory.close();
         entityManagerFactory.close();
-        return null;
     }
 }

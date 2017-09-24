@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <description>
+        InfoMindz SHEAMS Application.
+    </description>
+    <display-name>InfoMindz SHEAMS Application</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+
+    <!--    
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
+    </context-param>-->
+    
+
+    <context-param>
+        <param-name>facelets.REFRESH_PERIOD</param-name>
+        <param-value>1</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/conf/log4j.properties</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>#{LookAndFeel.skinName}</param-value>
+    </context-param>
+     
+    <!--    <context-param>
+        <param-name>primefaces.SKIN</param-name>
+        <param-value>#{LookAndFeel.skinName}</param-value>
+    </context-param>-->
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>
+            /WEB-INF/platform/faces-config-platform.xml,
+            /WEB-INF/sheams/faces-config-system-management.xml,
+            /WEB-INF/sheams/faces-config-hazard-management.xml
+       
+        </param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <!--Remove comment code when load page-->
+    <context-param>
+        <param-name>facelets.SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <!-- JSF mapping -->
+    <servlet>
+        <servlet-name>ApplicationStartupServlet</servlet-name>
+        <servlet-class>com.infomindz.spring.platform.pl.startup.ApplicationStartupServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>fileDownloadServlet</servlet-name>
+        <servlet-class>com.infomindz.platform.pl.FileDownloadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PasswordRecoveryServlet</servlet-name>
+        <servlet-class>com.infomindz.platform.pl.PasswordRecoveryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Push Servlet</servlet-name>
+        <servlet-class>com.infomindz.platform.pl.LogoutServlet</servlet-class>
+        <init-param>
+            <param-name>dataBaseServerError</param-name>
+            <param-value>/faces/pages/general/dataBaseException.xhtml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>Custom Faces Servlet</servlet-name>
+        <servlet-class>com.infomindz.platform.pl.CustomFacesServlet</servlet-class>
+        <init-param>
+            <param-name>internalServerError</param-name>
+            <param-value>/faces/pages/general/internalServerErrorPage.xhtml</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>dataBaseServerError</param-name>
+            <param-value>/faces/pages/general/dataBaseException.xhtml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.faces</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/jsf/*</url-pattern>
+    </servlet-mapping>
+    <!--    <servlet-mapping>
+        <servlet-name>Custom Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Custom Faces Servlet</servlet-name>
+        <url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>-->
+    <!--Overrriding Faces Servlet End-->
+    <servlet-mapping>
+        <servlet-name>ApplicationStartupServlet</servlet-name>
+        <url-pattern>/ApplicationStartupServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PasswordRecoveryServlet</servlet-name>
+        <url-pattern>/PasswordRecoveryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Push Servlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>fileDownloadServlet</servlet-name>
+        <url-pattern>/fileDownloadServlet/*</url-pattern>
+    </servlet-mapping>
+    <!--Filter-->
+    <filter>
+        <filter-name>SSCMSSessionExpiryFilter</filter-name>
+        <filter-class>com.infomindz.platform.pl.listeners.SSCMSSessionExpiryFilter</filter-class>
+    </filter>
+    <listener>
+        <description>The listener which listens for session life cycle events</description>
+        <display-name>SessionLifeCycleListener</display-name>
+        <listener-class>com.infomindz.platform.pl.listeners.SessionLifeCycleListener</listener-class>
+    </listener>
+    <!-- End of Rich Faces and A4JSF -->
+    <!-- Filter for Commons File Upload -->
+    <filter>
+        <filter-name>Extensions Filter</filter-name>
+        <filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
+        <init-param>
+            <description>
+                Set the size limit for uploaded files.
+                Format: 10  - 10 bytes
+                10k - 10 KB
+                10m - 10 MB
+                1g  - 1 GB
+            </description>
+            <param-name>uploadMaxFileSize</param-name>
+            <param-value>25m</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Extensions Filter</filter-name>
+        <servlet-name>Custom Faces Servlet</servlet-name>
+    </filter-mapping>
+    
+
+    <filter>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PrimeFaces FileUpload Filter</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+    <!--End-->
+    <context-param>
+        <param-name>maximumDataTableRows</param-name>
+        <param-value>20</param-value>
+    </context-param>
+    <context-param>
+        <param-name>maximumDataScrollerPage</param-name>
+        <param-value>3</param-value>
+    </context-param>
+
+  
+    <!--    <listener>
+        <listener-class> com.sun.faces.config.ConfigureListener </listener-class>
+    </listener>-->
+        <context-param>
+        <param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+
+    <welcome-file-list>
+        <welcome-file>pages/general/home.xhtml</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/faces/pages/general/internalServerErrorPage.xhtml</location>
+    </error-page>
+    <!--    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/faces/pages/general/home.xhtml</location> 
+    </error-page>-->
+<!--    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>pages/general/home.xhtml</location>
+    </error-page>-->
+    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/pages/general/home.xhtml</location>
+    </error-page>
+        <error-page>
+        <error-code>500</error-code>
+        <location>/faces/pages/general/home.xhtml</location>
+    </error-page>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>

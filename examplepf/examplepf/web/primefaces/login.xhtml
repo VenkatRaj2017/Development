@@ -1,0 +1,320 @@
+<!--
+    dashBoardDemo.xhtml
+
+    Created on Nov 16, 2016, 10:29:04 AM
+
+    Copyright © 2012-2013 InfoMindz R&D Sdn. Bhd.
+    All Rights Reserved.
+
+    This software is the confidential and proprietary information of
+    InfoMindz R&D Sdn. Bhd.("Confidential Information"). You shall
+    not disclose such Confidential Information and shall use it only
+    in accordance with the terms of the license agreement you entered
+    into with InfoMindz.
+
+
+    This page is used to
+    since:  1.0
+    author: balamurali-->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="/css/main.css"/>
+        <h:outputStylesheet name="/css/slider-def.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'></link>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+        <style>
+            html, body 
+            {
+                margin: 0 auto;
+                position:fixed;
+                top:0;
+                bottom:0;
+                left:0;
+                right:0;
+            }
+           
+        </style>
+    </h:head>
+    <h:body>
+        <f:view>
+            <style>
+                .loginImageStyleClass
+                {
+                    position: relative;
+                    margin: 0 auto !important;
+                    padding: 0 !important;
+                    width: 100%!important;
+                    display:block !important;
+                    height: 100%!important;
+                }
+                .loginDiv 
+                {
+                    background-color: #ffffff;
+                    position: absolute;
+                    top: 200px;
+                    left: 820px;
+                    z-index: 50 !important;
+
+                    width: 300px;
+                    height:330px;
+                    border-radius: 5px; 
+                    text-align: center;
+                    padding-top: 1px;
+                    box-shadow: 0 0 10px rgba(0,0,0, .5);
+
+                }
+                
+                 /* CSS Document */
+
+                h1{
+                    margin: 0 auto;
+                    padding-top: 20%;
+                    padding-left: 15%;
+                    text-transform:uppercase;
+                    font-size:30px;
+                    color:white;
+                }
+
+
+                h2{
+                    margin: 0 auto;
+                    padding-left: 15%;
+                    font-size:18px;
+                    color:#fff;
+                }
+
+
+/*                body {
+                    font-family: Helvetica;
+                    margin:0 auto;
+                    min-height:100%;
+                    margin-top: -14%;
+                    background: #fff url(http://ns223506.ovh.net/rozne/20c33772316997fa8805bbb75d57d83b/wallpaper-700251.jpg) no-repeat center center fixed;
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                }*/
+
+/*                .nav {
+
+                    margin: 0 auto;
+                    margin-top: 15px;
+                    margin-left: 15%;
+                    width: 300px;
+                    height: 200px;
+                    background: #fff;
+                    border-radius: 5px; 
+                    text-align: center;
+                    padding-top: 1px;
+                    box-shadow: 0 0 10px rgba(0,0,0, .5);
+
+                }*/
+
+                .username {
+                    border: 1px solid #a6a6a6;
+                    width: 230px;
+                    height: 40px;
+                    border-radius: 3px;
+                    margin-top: 25px;
+                    padding-left: 9px;
+                    color: #6c6c6c;
+                    background: #fcfcfc;
+                    outline: none;
+                }
+
+                .password {
+                    border: 1px solid #a6a6a6;
+                    width: 230px;
+                    height: 40px;
+                    border-radius: 3px;
+                    margin-top: 5px;
+                    margin-right: 3px;
+                    padding-left: 9px;
+                    color: #6c6c6c;
+                    background: #fcfcfc;
+                    outline: none;
+                }
+
+                .password:hover, .username:hover {
+                    box-shadow: 0 0 10px rgba(178,34,34, 1); 
+                    border: 1px #b22222	 solid ;
+                }
+
+                .password:focus, .username:focus, .button:focus, .button:hover:focus{
+                    box-shadow: 0 0 10px rgba(178,34,34, 1); 
+                    border: 1px #b22222	 solid ;
+                }
+
+                .button {
+                    color:#fff;
+                    font-size:20px;
+                    border: 1px solid #a6a6a6;
+                    width: 243px;
+                    height: 43px;
+                    border-radius: 5px;
+                    margin-top: 5px;
+                    margin-right: 6px;
+                    outline: none;
+                    background: rgb(255,48,25); /* Old browsers */
+                    background: -moz-linear-gradient(top,  rgb(255,48,25) 0%, rgb(207,4,4) 100%); /* FF3.6+ */
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(255,48,25)), color-stop(100%,rgb(207,4,4))); /* Chrome,Safari4+ */
+                    background: -webkit-linear-gradient(top,  rgb(255,48,25) 0%,rgb(207,4,4) 100%); /* Chrome10+,Safari5.1+ */
+                    background: -o-linear-gradient(top,  rgb(255,48,25) 0%,rgb(207,4,4) 100%); /* Opera 11.10+ */
+                    background: -ms-linear-gradient(top,  rgb(255,48,25) 0%,rgb(207,4,4) 100%); /* IE10+ */
+                    background: linear-gradient(to bottom,  rgb(255,48,25) 0%,rgb(207,4,4) 100%); /* W3C */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 ); /* IE6-9 */
+                }
+
+
+                .button:hover{
+                    background: rgb(204,0,0); /* Old browsers */
+                    background: -moz-linear-gradient(top,  rgb(204,0,0) 0%, rgb(204,0,0) 100%); /* FF3.6+ */
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(204,0,0)), color-stop(100%,rgb(204,0,0))); /* Chrome,Safari4+ */
+                    background: -webkit-linear-gradient(top,  rgb(204,0,0) 0%,rgb(204,0,0) 100%); /* Chrome10+,Safari5.1+ */
+                    background: -o-linear-gradient(top,  rgb(204,0,0) 0%,rgb(204,0,0) 100%); /* Opera 11.10+ */
+                    background: -ms-linear-gradient(top,  rgb(204,0,0) 0%,rgb(204,0,0) 100%); /* IE10+ */
+                    background: linear-gradient(to bottom,  rgb(204,0,0) 0%,rgb(204,0,0) 100%); /* W3C */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc0000', endColorstr='#cc0000',GradientType=0 ); /* IE6-9 */
+                }
+                
+                label {
+                    position: relative;
+                    top: 5px;
+                    margin-right: 115px;
+                }
+                label span {
+                    margin-left: 5px;
+                    font-size:14px;
+                }
+                
+                @keyframes jackInTheBox {
+                    from {
+                        opacity: 0;
+                        transform: scale(0.1) rotate(30deg);
+                        transform-origin: center bottom;
+                    }
+
+                    50% {
+                        transform: rotate(-10deg);
+                    }
+
+                    70% {
+                        transform: rotate(3deg);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+
+                .jackInTheBox {
+                    animation-name: jackInTheBox;
+                }
+
+            </style>
+            <h:form id="mainform" binding="#{Login.initForm}">
+<!--                <p:imageSwitch effect="fade" 
+                               id="fadeEffect" 
+                               slideshowSpeed="3000"
+                               styleClass="loginImageStyleClass">
+                    <ui:repeat value="#{Login.images}" var="image" id="fadeEffectImages">
+                        <p:graphicImage url="/resources/images/#{image}" id="image" 
+                                        styleClass="loginImageStyleClass"/>
+                    </ui:repeat>
+                </p:imageSwitch>-->
+                
+
+<!--<div class="loginImageStyleClass">
+    <img src="/examplepf/resources/images/1.jpg"></img>
+</div>-->
+<!--<div class="legend">
+    <div class="content">
+        <div class="content-txt">
+        <h1>Hai this is test content</h1>
+        </div>
+    </div>
+</div>-->
+
+<div class="legend">
+    <!--Slider--> 
+    <div id="slider">
+        <div class="slides">
+            <div class="slider">
+
+                <div class="content">
+                    <div class="content-txt">
+                        <h1>User Management</h1>
+                        <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="content">
+                    <div class="content-txt">
+                        <h1>Cash Management</h1>
+                        <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="content">
+                    <div class="content-txt">
+                        <h1>Payroll</h1>
+                        <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="content">
+                    <div class="content-txt">
+                        <h1>Hazard Management</h1>
+                        <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                
+</div>
+                <div class="loginDiv" id="loginDivId">
+                    <p:spacer height="5"/>
+                    <center>
+                        <p:graphicImage url="/resources/images/orchid.png"/>
+                    </center>
+                    <center>
+                        <h:panelGrid columns="3">
+                            <p:commandLink value="English" style="font-size: small;color: #ff3019;"/>
+                            <h:outputText value="|"/>
+                            <p:commandLink value="Malay" style="font-size: small;"/>
+                        </h:panelGrid>
+                    </center>
+                    
+                    <input type="text" class="username" placeholder="Username" />
+                    <input type="password" class="password" placeholder="Password"/>
+                    <input type="submit" value="Sign In" class="button" alt=""/>
+                    <br></br>
+                    <br></br>
+                    <center>
+                        <p:commandLink value="Forgot Password ?" style="font-size: small;"/>
+                    </center>
+                    <br></br>
+                    <br></br>
+                    <center>
+                        <h:outputText value="© 2017 MindFree sdn bhd" style="font-size: smaller;"/>
+                    </center>
+                    <p:spacer height="5"/>
+                </div>
+            </h:form>
+        </f:view>
+    </h:body>
+</ui:composition>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    
+    
+    <!--    <managed-bean>
+        <managed-bean-name>SelectOneMenu</managed-bean-name>
+        <managed-bean-class>com.infomindz.page.SelectOneMenu</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>-->
+
+    <managed-bean>
+        <description>Managed beans</description>
+        <managed-bean-name>DashBoardDemo</managed-bean-name>
+        <managed-bean-class>com.primefaces.testclass.DashBoardDemo</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>        
+    </managed-bean>
+    
+    <managed-bean>
+        <description>Managed beans</description>
+        <managed-bean-name>Login</managed-bean-name>
+        <managed-bean-class>com.primefaces.testclass.Login</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <description>Managed beans</description>
+        <managed-bean-name>DynamicFormCreator</managed-bean-name>
+        <managed-bean-class>com.primefaces.testclass.DynamicFormCreator</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <description>Managed beans</description>
+        <managed-bean-name>LocationRadio</managed-bean-name>
+        <managed-bean-class>com.primefaces.testclass.LocationRadio</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Managed beans</description>
+        <managed-bean-name>Quotation</managed-bean-name>
+        <managed-bean-class>com.primefaces.testclass.Quotation</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+</faces-config>

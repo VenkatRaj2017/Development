@@ -1,0 +1,27 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="\resources\script\jquery-2.js"></script>
+        <script>
+            function colorChangeAction(colorValue)
+            {
+                $(".colorDivId").css("background-color",colorValue)
+            }
+        </script>
+
+    </head>
+    <body>
+
+        <div class="colorDivId" style="width:100px;height:100px;">
+            <p>Welcome to Infomindz</p>
+        </div>
+        
+        <input type="button" value="Green" onclick="colorChangeAction('green');"
+        <input type="button" value="Yellow" onclick="colorChangeAction('yellow');"
+        
+    </body>
+</html>
